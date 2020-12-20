@@ -1,0 +1,28 @@
+.flex-container {
+    display: flex;
+}
+
+.both-side {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #535B62;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    margin-top: 7%;
+}
+
+.both-side span {
+    background: #fff;
+    margin-right: 65px !important;
+    padding: 0 10px;
+    color: #535B62;
+}
+
+.dot-line {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: #535B62;
+    text-underline-position: under;
+    font-weight: 500;
+    font-size: .9rem;
+}

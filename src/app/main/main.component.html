@@ -1,0 +1,553 @@
+<mat-tab-group animationDuration="0ms">
+    <mat-tab label="Overview">
+        <div style="margin-top: 2%;margin-bottom: 2%;">
+            <h5>Price Chart</h5>
+        </div>
+        <div class="row" style="margin-right: 5px;">
+            <div class="col-md-6">
+                <table style="width: 65%;">
+                    <tr>
+                        <th style="font-weight: 400;">High</th>
+                        <th style="font-weight: 400;">Low</th>
+                        <th style="font-weight: 400;">Returns</th>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 1%; font-weight: 200;">&#x20B9; 2,038.00</td>
+                        <td style="padding-top: 1%; font-weight: 200;">&#x20B9; 1,974.25</td>
+                        <td style="padding-top: 1%; font-weight: 200; color: red;">-0.05%</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6 pull-right">
+                <table style="width: 80%; border: 1px solid #DCDCDC; float: right;">
+                    <tr>
+                        <th style="font-weight: 500; padding: 1.5%; background-color: black; color: white; text-align: center;">1D</th>
+                        <th style="font-weight: 500; padding: 1.5%; text-align: center;">1W</th>
+                        <th style="font-weight: 500; padding: 1.5%; text-align: center;">1M</th>
+                        <th style="font-weight: 500; padding: 1.5%; text-align: center;">1Y</th>
+                        <th style="font-weight: 500; padding: 1.5%; text-align: center;">5Y</th>
+                        <th style="font-weight: 500; padding: 1.5%; text-align: center;">Max</th>
+                        <th style="font-weight: 500; padding: 1.5%; text-align: center;">SIP</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </mat-tab>
+    <mat-tab label="Forcasts">Forcasts 2</mat-tab>
+    <mat-tab label="Financials">Financials 3</mat-tab>
+    <mat-tab label="Peers">Peers 3</mat-tab>
+    <mat-tab label="Holdings">Holdings 3</mat-tab>
+    <mat-tab label="News">News 3</mat-tab>
+    <mat-tab label="Events">Events 3</mat-tab>
+</mat-tab-group>
+
+<div class="chart-wrapper">
+    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+  </canvas>
+</div>
+
+<div class="d-flex">
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;">
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#07A910;">arrow_drop_down_circle</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="dot-line">Energy</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">Stock has been generating better return on equity than bank FD</div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2  flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-left: 2%;margin-right: 2%;
+    margin-top: 2%;">
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#07A910;">arrow_drop_down_circle</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="dot-line">Large Cap</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">Stock has been generating better return on equity than bank FD</div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;">
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#07A910;">arrow_drop_down_circle</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="dot-line">Low Risk</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">Stock has been generating better return on equity than bank FD</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between mb-3">
+    <div class="p-2" style="font-weight: 500;">
+        Key Metrics
+    </div>
+    <div class="p-2">
+        <button class="btn btn-sm" style="background-color: #624BFF;color: white;font-size: .7rem;">
+          <span class="material-icons" style="font-size: 11px;position: relative;top: 2px;">lock</span>
+           <span> Edit</span>
+        </button>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="p-2 flex-fill">
+        <div class="header">PE Ratio</div>
+        <div style="color: #535B62;">31.55</div>
+    </div>
+    <div class="p-2 flex-fill">
+        <div class="header">PB Ratio</div>
+        <div style="color: #535B62;">2.78</div>
+    </div>
+    <div class="p-2 flex-fill">
+        <div class="header">Dividend Yiedld</div>
+        <div style="color: #535B62;">0.32%</div>
+    </div>
+    <div class="p-2 flex-fill">
+        <div class="header">Sector PE</div>
+        <div style="color: #535B62;">23.19</div>
+    </div>
+    <div class="p-2 flex-fill">
+        <div class="header">Sector PB</div>
+        <div style="color: #535B62;">2.27</div>
+    </div>
+    <div class="p-2 flex-fill">
+        <div class="header">Sector Div YId</div>
+        <div style="color: #535B62;">1.25%</div>
+    </div>
+</div>
+<div class="d-flex justify-content-between mb-3">
+    <div class="p-2" style="font-weight: 500;">
+        Forcast & Ratings
+    </div>
+    <div class="p-2" style="color: #1F7AE2;font-size: .8rem;font-weight: 500;">
+        <span>Detailed Forecast</span>
+        <span class="material-icons" style="color: #1F7AE2;font-size: 1.3rem;position: relative;top: 6px;">arrow_right_alt</span>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="p-2 flex-fill">
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#D82F44;">arrow_drop_down_circle</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div>
+                    Analysts have suggested that investors can buy this stock
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 flex-fill ">
+        <div class="d-flex ">
+            <div class="p-2 flex-fill ">
+                <div class="header ">Price Upside</div>
+                <div>
+                    <span class="material-icons " style="position: relative;top: 2px;color: #624BFF;font-size: 1rem; ">lock</span>
+                    <span style="color: #624BFF;font-weight: 500; "> Pro Only</span>
+                </div>
+            </div>
+            <div class="p-2 flex-fill ">
+                <div class="header ">Earnings Growth</div>
+                <div>
+                    <span class="material-icons " style="position: relative;top: 2px;color: #624BFF;font-size: 1rem; ">lock</span>
+                    <span style="color: #624BFF;font-weight: 500; "> Pro Only</span>
+                </div>
+            </div>
+            <div class="p-2 flex-fill ">
+                <div class="header ">Rev. Growth</div>
+                <div>
+                    <span class="material-icons " style="position: relative;top: 2px;color: #624BFF;font-size: 1rem; ">lock</span>
+                    <span style="color: #624BFF;font-weight: 500; "> Pro Only</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div style="font-weight: 500;margin-bottom: 3%;">Company Profile</div>
+        <div style="color:#535B62;">Reliance Industries Limited is engaged in refining, manufacturing of refined petroleum products, petrochemicals,including manufacturing of basic chemicas, fertilizers and nitrogen compounds, plastic and synthetic rubber in primary forms.</div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div style="font-weight: 500;margin-bottom: 1.5%;margin-top: 2%;">
+    Brands
+</div>
+<div class="row" style="margin-right: 6px;">
+    <div class="col-md-7">
+        <div class="d-flex">
+            <div class="flex-fill" style="border: 1px solid #D1D5DA;border-radius: 7px;margin-left: 3%;">
+                <div style="text-align: center;height: 50%;"><img [src]="relianceImage" alt="Jio" style="width: 35%;"></div>
+                <div style="margin-top: 4%;margin-left: 3%;" class="header">Reliance Fresh</div>
+                <div class="" style="font-weight: 400;font-size: 0.8rem;color: #a1a6ab;margin-top: 1.5%;margin-left: 3%;">Retail chain store</div>
+            </div>
+            <div class="flex-fill" style="border: 1px solid #D1D5DA;border-radius: 7px;margin-left: 3%;">
+                <div style="text-align: center;"><img [src]="jioImage" alt="Jio" style="width: 35%;"></div>
+                <div style="margin-top: 4%;margin-left: 3%;" class="header">Reliance Jio</div>
+                <div class="" style="font-weight: 400;font-size: 0.8rem;color: #a1a6ab;margin-top: 1.5%;margin-left: 3%;">Mobile network brand</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="d-flex justify-content-between mb-3">
+    <div class="p-2" style="font-weight: 500;">
+        Peers
+    </div>
+    <div class="p-2" style="color: #1F7AE2;font-size: .8rem;font-weight: 500;">
+        <span>Compare with peers</span>
+        <span class="material-icons" style="color: #1F7AE2;font-size: 1.3rem;position: relative;top: 6px;">arrow_right_alt</span>
+    </div>
+</div>
+<div class="p-2 d-flex" style="overflow-x:scroll;white-space: nowrap;">
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;width: 100%;">
+        <div class="header" style="font-weight: 500;">
+            Reliance Industries Ltd. - Partly Paid Up
+        </div>
+        <div style="font-weight: 400;font-size: 0.6rem;color: #a1a6ab;">
+            RELIANCEPP
+        </div>
+        <div style="margin-top: 6%;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="color: #a1a6ab;" class="header">PE RATIO</td>
+                    <td style="color: #a1a6ab;" class="header">1Y Return</td>
+                    <td style="color: #a1a6ab;" class="header">Buy Rec...</td>
+                </tr>
+                <tr>
+                    <td class="header" style="font-weight: 500;">&#x2212;</td>
+                    <td class="header" style="font-weight: 500;">&#x2212;</td>
+                    <td class="header" style="font-weight: 500;">62.50</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;margin-left: 2%;width: 100%;">
+        <div class="header" style="font-weight: 500;">Bharat Petroleum Coporation Ltd</div>
+        <div style="font-weight: 400;font-size: 0.6rem;color: #a1a6ab;">BPCL</div>
+        <div style="margin-top: 6%;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="color: #a1a6ab;" class="header">PE RATIO</td>
+                    <td style="color: #a1a6ab;" class="header">1Y Return</td>
+                    <td style="color: #a1a6ab;" class="header">Buy Rec...</td>
+                </tr>
+                <tr>
+                    <td class="header" style="font-weight: 500;">25.58</td>
+                    <td class="header" style="font-weight: 500;">-17.66%</td>
+                    <td class="header" style="font-weight: 500;">91.89</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;margin-left: 2%;width: 100%;">
+        <div class="header" style="font-weight: 500;">Indian Oil Corporation Ltd</div>
+        <div style="font-weight: 400;font-size: 0.6rem;color: #a1a6ab;">IOC</div>
+        <div style="margin-top: 6%;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="color: #a1a6ab;" class="header">PE RATIO</td>
+                    <td style="color: #a1a6ab;" class="header">1Y Return</td>
+                    <td style="color: #a1a6ab;" class="header">Buy Rec...</td>
+                </tr>
+                <tr>
+                    <td class="header" style="font-weight: 500;">-96.47</td>
+                    <td class="header" style="font-weight: 500;">-25.24%</td>
+                    <td class="header" style="font-weight: 500;">&#x2212;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;margin-left: 2%;width: 100%;">
+        <div class="header" style="font-weight: 500;">Hindustan Petroleum Corp Ltd</div>
+        <div style="font-weight: 400;font-size: 0.6rem;color: #a1a6ab;">HINDPETRO</div>
+        <div style="margin-top: 6%;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="color: #a1a6ab;" class="header">PE RATIO</td>
+                    <td style="color: #a1a6ab;" class="header">1Y Return</td>
+                    <td style="color: #a1a6ab;" class="header">Buy Rec...</td>
+                </tr>
+                <tr>
+                    <td class="header" style="font-weight: 500;">12.55</td>
+                    <td class="header" style="font-weight: 500;">-17.24%</td>
+                    <td class="header" style="font-weight: 500;">&#x2212;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="p-2 flex-fill" style="border: 2px solid #D1D5DA;border-radius: 7px;margin-top: 2%;margin-left: 2%;width: 100%;">
+        <div class="header" style="font-weight: 500;">Mangalore Refinery and Petrochemicals Ltd</div>
+        <div style="font-weight: 400;font-size: 0.6rem;color: #a1a6ab;">MRPL</div>
+        <div style="margin-top: 6%;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="color: #a1a6ab;" class="header">PE RATIO</td>
+                    <td style="color: #a1a6ab;" class="header">1Y Return</td>
+                    <td style="color: #a1a6ab;" class="header">Buy Rec...</td>
+                </tr>
+                <tr>
+                    <td class="header" style="font-weight: 500;">-1.81</td>
+                    <td class="header" style="font-weight: 500;">-22.58%</td>
+                    <td class="header" style="font-weight: 500;">50.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between" style="background-color: #624BFF;border-radius: 7px;">
+    <div class="p-2">
+        <div class="d-flex">
+            <div style="margin-left:-8px;margin-top:15px;">
+                <div style="background-color:white;background-color: white;
+                width: fit-content;
+                padding: 3px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;">
+                    <div class="rectangle"></div>
+                    <div class="triangle-down"></div>
+                    <div class="triangle-up"></div>
+                </div>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div style="color: white;font-size: 1.3rem;font-weight: 500;">Get more out of Tickertape, Go Pro!</div>
+                <div style="color: white;">Customise key metrics, see detailed forecasts, download stock data and more</div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2" style="margin-top:2%">
+        <button class="btn" style="text-align: center;background-color: white;">See Plans</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="d-flex justify-content-between">
+            <div class="p-2" style="font-weight: 500;margin-top: 1%;">
+                Financial Trend
+            </div>
+            <div class="p-2" style="color: #1F7AE2;font-size: .8rem;font-weight: 500;">
+                Financial statements
+                <span class="material-icons" style="color: #1F7AE2;font-size: 1.3rem;position: relative;top: 6px;">arrow_right_alt</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="d-flex justify-content-between">
+            <div class="p-2" style="font-weight: 500;margin-top: 1%;">
+                Holdings Trend
+            </div>
+            <div class="p-2" style="color: #1F7AE2;font-size: .8rem;font-weight: 500;">
+                Detailed holdings
+                <span class="material-icons" style="color: #1F7AE2;font-size: 1.3rem;position: relative;top: 6px;">arrow_right_alt</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <!-- GRAPH START -->
+
+        <div id='d3Id'></div>
+
+        <div class="d-flex justify-content-between header">
+            <div class="p-2">
+                <div class="d-flex">
+                    <div class="square" style="background-color: #C6ECFF;"></div>
+                    <div> &nbsp;Revenue &nbsp;&nbsp;&nbsp;</div>
+                    <div class="square" style="background-color: #61A1E7;"></div>
+                    <div> &nbsp;Profit</div>
+                </div>
+            </div>
+            <div class="p-2">
+                All values in ₹ Lakh cr.
+            </div>
+        </div>
+
+
+        <!-- GRAPH END -->
+
+
+    </div>
+    <div class="col-md-6">
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color: #535B62;">radio_button_checked</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="dot-line header" style="font-weight: 500;">Total Promoter Holding</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">
+                    In last 6 months, promoter holding in the company has almost stayed constant
+                </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#07A410;">arrow_drop_down_circle</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="dot-line header" style="font-weight: 500;">Low Pledged Promoter Holding</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">
+                    Pledged promoter holdings is insignificant
+                </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color: #535B62;">radio_button_checked</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="dot-line header" style="font-weight: 500;">Mutual Fund Holding</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">
+                    In last 3 months, mutual fund holding of the company has almost stayed constant
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="d-flex justify-content-between">
+            <div class="p-2" style="font-weight: 500;margin-top: 1%;">
+                Recent News
+            </div>
+            <div class="p-2" style="color: #1F7AE2;font-size: .8rem;font-weight: 500;">
+                All news
+                <span class="material-icons" style="color: #1F7AE2;font-size: 1.3rem;position: relative;top: 6px;">arrow_right_alt</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="d-flex justify-content-between">
+            <div class="p-2" style="font-weight: 500; margin-top: 1%;">
+                Recent Events
+            </div>
+            <div class="p-2" style="color: #1F7AE2;font-size: .8rem;font-weight: 500;">
+                All events
+                <span class="material-icons" style="color: #1F7AE2;font-size: 1.3rem;position: relative;top: 6px;">arrow_right_alt</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="d-flex">
+            <div class="p-2" style="width: 35%;">
+                <img [src]="stocksMarket" alt="stocksMarket" style="width: 100%;">
+            </div>
+            <div class="p-2 flex-fill">
+                <div class="header" style="font-weight: 500;">
+                    Stocks in focus: Reliance Industries, TCS, Info Edge, BPCL, Axis Bank, Larsen & Toubro, Majesco
+                </div>
+                <div style="font-size: .7rem;color: #81878C;">
+                    5 hours ago . Financial Express
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="p-2" style="width: 22%;">
+                <img [src]="bussiness" alt="bussiness" style="width: 100%;">
+            </div>
+            <div class="p-2 flex-fill">
+                <div class="header" style="font-weight: 500;">
+                    SC to hear RIL plea against SEBI in insider trading case
+                </div>
+
+                <div style="font-size: .7rem;color: #81878C;">
+                    17 hours ago . The Hindu Bussinessline
+                </div>
+
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div class="p-2" style="width: 26%;">
+                <img [src]="marketUpdate" alt="marketUpdate" style="width: 100%;">
+            </div>
+            <div class="p-2 flex-fill">
+                <div class="header" style="font-weight: 500;">
+                    Market Update: Sensex closes 224 points up, Nifty ends at 13,740
+                </div>
+
+                <div style="font-size: .7rem;color: #81878C;">
+                    21 hours ago . Free Press Journal
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#1E77DA;">contact_support</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="header">Loss of share Certificates</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">
+                    Announced On Dec 16, 2020
+                </div>
+                <div style="font-size: .9rem;">
+                    Pursant to Regulation 39(3) of the Securities and Exchange
+                </div>
+                <div style="font-size: .9rem;">
+                    Board of India (Listing Obligation and Disclosure <span>...</span>
+                </div>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#1E77DA;">contact_support</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="header">Loss of share Certificates</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">
+                    Announced On Dec 15, 2020
+                </div>
+                <div style="font-size: .9rem;">
+                    Pursant to Regulation 39(3) of the Securities and Exchange
+                </div>
+                <div style="font-size: .9rem;">
+                    Board of India (Listing Obligation and Disclosure <span>...</span>
+                </div>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="d-flex">
+            <div class="p-2">
+                <mat-icon style="color:#F49221;">contact_support</mat-icon>
+            </div>
+            <div class="p-2 flex-grow-1">
+                <div class="header">Cash Dividend</div>
+                <div style="color: #535B62;font-size: .9rem;margin-top: 1%;">
+                    Ex Date Jul 2, 2020
+                </div>
+                <div style="font-size: .9rem;">
+                    Final Div/Share: &#x20B9; 6.5
+                </div>
+                <div style="font-size: .9rem;">
+                    Board of India (Listing Obligation and Disclosure <span>...</span>
+                </div>
+            </div>
+        </div>
+
+    </div>

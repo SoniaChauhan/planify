@@ -1,0 +1,43 @@
+.header {
+    font-size: .8rem;
+    /* font-weight: 500; */
+}
+
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #624BFF;
+    margin-left: -1px;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #624BFF;
+}
+
+.rectangle {
+    height: 3.5px;
+    width: 28px;
+    background-color: #624BFF;
+    margin-right: 2px;
+}
+
+.dot-line {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: #535B62;
+    text-underline-position: under;
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.square {
+    height: 18px;
+    width: 18px;
+    border-radius: 4px;
+}
